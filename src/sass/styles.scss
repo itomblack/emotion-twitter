@@ -38,7 +38,45 @@ body {
   line-height: 1.4;
 }
 
+h6, h5 {
+  color: blue;
+  margin: 0;
+  float: left;
+  width: 50%;
+}
+
 //===============================================================================
 // STYLES
 //===============================================================================
 
+/* 
+* Example style!
+* You can do whatever the hell you want on your site :-)
+*/
+
+
+p, a {
+  font-size:9pt;
+  margin:10px 0 0 0;
+  color:#3d3d3d;
+}
+
+a, a:visited {
+  color:#427fed;
+}
+
+a:hover {
+  color:#82afff;
+}
+
+ul li {
+  list-style:none;
+  overflow:hidden;
+  border:1px solid #dedede;
+  margin:5px;
+  padding:5px;
+}
+
+ul li:hover {
+  background-color:#f0f3fb;
+}

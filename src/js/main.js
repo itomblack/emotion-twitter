@@ -29,6 +29,68 @@ function dateFormatter(date) {
 // tweets ourself! Useful if you need to know exactly when data has returned or
 // if you need full control over the output.
 
+//happy
+var config1 = {
+  "id": '599621806916505600',
+  "domId": 'example1',
+  "maxTweets": 20,
+  "enableLinks": true,
+  "showUser": true,
+  "showTime": true,
+  "dateFunction": '',
+  "showRetweet": false,
+  "dateFunction": dateFormatter,
+  "customCallback": handleTweets,
+  "showInteraction": false
+};
+
+//sad
+var config2 = {
+  "id": '599621806916505600',
+  "domId": 'example2',
+  "maxTweets": 20,
+  "enableLinks": true,
+  "showUser": true,
+  "showTime": true,
+  "dateFunction": '',
+  "showRetweet": false,
+  "dateFunction": dateFormatter,
+  "customCallback": handleTweets,
+  "showInteraction": false
+};
+
+//surprised
+var config3 = {
+  "id": '599621806916505600',
+  "domId": 'example3',
+  "maxTweets": 20,
+  "enableLinks": true,
+  "showUser": true,
+  "showTime": true,
+  "dateFunction": '',
+  "showRetweet": false,
+  "dateFunction": dateFormatter,
+  "customCallback": handleTweets,
+  "showInteraction": false
+};
+
+
+//afraid
+var config4 = {
+  "id": '598894124360667136',
+  "domId": 'example4',
+  "maxTweets": 20,
+  "enableLinks": true,
+  "showUser": true,
+  "showTime": true,
+  "dateFunction": '',
+  "showRetweet": false,
+  "dateFunction": dateFormatter,
+  "customCallback": handleTweets,
+  "showInteraction": false
+};
+
+//afraid
 var config5 = {
   "id": '598894124360667136',
   "domId": 'example5',
@@ -43,45 +105,86 @@ var config5 = {
   "showInteraction": false
 };
 
-// var initialTime = 0;
+
+//DEFINE VARIABLES ************//
+
+var emotionCount = 1;
+
+var happyTweets = [],
+happyTop = 0,
+happyCount = 0;
+
+var sadTweets = [],
+sadTop = 0,
+sadCount = 0;
+
+var surprisedTweets = [],
+surprisedTop = 0,
+surprisedCount = 0;
+
+var afraidTweets = [],
+afraidTop = 0,
+afraidCount = 0;
 
 var angryTweets = [],
 angryTop = 0,
 angryCount = 0;
 
+
+
+
+//DEFINE FUNCTIONS ************//
+
+
 function logValues() {
-  // var angryTop = Math.max.apply(Math, angryTweets);
   console.log('top ' + angryTop);
   console.log('tweets ' + angryTweets);
   console.log('count ' + angryCount);
-  
 }
 
-function countVal() {
+function getTop(emotionTweets) {
+  return Math.max.apply(Math, emotionTweets);
+}
+
+function countVal(tweetsIn, topVal) {
    //count the number equal
-   
-
-      var thisCount = 0;
-      for (var i = 0; i < angryTweets.length; i++) {
-          if (angryTweets[i] == angryTop) {
-             thisCount++;
-          }
-      };
-    return thisCount;
+    var thisCount = 0;
+    for (var i = 0; i < tweetsIn.length; i++) {
+        if (tweetsIn[i] == topVal) {
+           thisCount++;
+        }
+    };
+  return thisCount;
 }
 
-
-function test(total) {
-  total = total / 2;
-  return total;
-}
+function setHtmlValue(emotion, emotionCount) {
+  var emotionID = '#' + emotion + '-count-num';
+  $(emotionID).html(emotionCount);
+};
 
 function handleTweets(tweets){
 
+
   //reset values
-  angryTweets = []
+  happyTweets = [],
+  happyTop = 0,
+  happyCount = 0;
+
+  sadTweets = [],
+  sadTop = 0,
+  sadCount = 0;
+
+  surprisedTweets = [],
+  surprisedTop = 0,
+  surprisedCount = 0;
+
+  afraidTweets = [],
+  afraidTop = 0,
+  afraidCount = 0;
+
+  angryTweets = [],
+  angryTop = 0,
   angryCount = 0;
-  angryTop = 0;
 
   //get number of tweets in last seconds
 
@@ -109,7 +212,13 @@ function handleTweets(tweets){
        // minutes are worth 60 seconds. Hours are worth 60 minutes.
        var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]); 
 
-       angryTweets[n] = seconds;
+
+        if (emotionCount === 1) {
+          happyTweets[n] = seconds;
+        }
+        else if (emotionCount === 5) {
+          angryTweets[n] = seconds;
+        }
 
 
 
@@ -119,25 +228,64 @@ function handleTweets(tweets){
       // twtContent = twtContent.split('</p>')[0];
       // // end get tweet content
 
-      html += '<li>' + seconds + '</li>';
+      // html += '<li>' + seconds + '</li>';
       n++;
       }
-      html += '</ul>';
-      element.innerHTML = html;
+      // html += '</ul>';
+      // element.innerHTML = html;
+    
+
+      if (emotionCount === 1) {
+        //GET HAPPY VALUES
+        happyTop = getTop(happyTweets);
+        happyCount = countVal(happyTweets, happyTop);
+        setHtmlValue('happy', happyCount);
+      }
+
+      if (emotionCount === 2) {
+        //GET ANGRY VALUES
+        sadTop = getTop(sadTweets);
+        sadCount = countVal(sadTweets, sadTop);
+        setHtmlValue('sad', sadCount);
+      }
+
+      if (emotionCount === 3) {
+        //GET ANGRY VALUES
+        surprisedTop = getTop(surprisedTweets);
+        surprisedCount = countVal(surprisedTweets, surprisedTop);
+        setHtmlValue('surprised', surprisedCount);
+      }
+
+      if (emotionCount === 4) {
+        //GET ANGRY VALUES
+        afraidTop = getTop(afraidTweets);
+        afraidCount = countVal(afraidTweets, afraidTop);
+        setHtmlValue('afraid', afraidCount);
+      }
+       
+      if (emotionCount === 5) {
+        //GET ANGRY VALUES
+        angryTop = getTop(angryTweets);
+        angryCount = countVal(angryTweets, angryTop);
+        setHtmlValue('angry', angryCount);
+      }
+
     
 
 
-
-    countVal();
-    //GET ANGRY VALUES
-    angryTop = Math.max.apply(Math, angryTweets);
-    angryCount = countVal();
-
     //console log the values for angry
-    logValues();
+    // logValues();
 
-}
+    emotionCount++;
+    // emotionCount = 5;
 
+} //*** END HANDLE TWEETS **//
+
+twitterFetcher.fetch(config1);
+twitterFetcher.fetch(config2);
+twitterFetcher.fetch(config3);
+twitterFetcher.fetch(config4);
 twitterFetcher.fetch(config5);
+
 
 
