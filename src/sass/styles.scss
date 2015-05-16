@@ -1,0 +1,44 @@
+//===============================================================================
+// IMPORTS
+//===============================================================================
+// normalize.css v3.0.0 | MIT License | git.io/normalize
+@import "_normalize.scss";
+
+// define mixins & functions
+@import "_mixins.scss";
+
+//===============================================================================
+// VARIABLES
+//===============================================================================
+$paper:  white;
+$ink:    black;
+
+//===============================================================================
+// BASCIS
+//===============================================================================
+// box-sizing everywhere and webkit text rendering correction
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+// remove padding & list styles from all <ul> as default
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+html,
+body {
+  background-color: $paper;
+  color: $ink;
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
+//===============================================================================
+// STYLES
+//===============================================================================
+
