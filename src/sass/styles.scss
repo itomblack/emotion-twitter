@@ -13,6 +13,14 @@
 $paper:  white;
 $ink:    black;
 
+$back: #252547;
+
+$happy: #46C872;
+$sad: #6254E5;
+$surprised: #FFB42E;
+$afraid: #EB76B6;
+$angry: #DD1C24;
+
 //===============================================================================
 // BASCIS
 //===============================================================================
@@ -32,10 +40,9 @@ ul {
 
 html,
 body {
-  background-color: $paper;
-  color: $ink;
   font-family: sans-serif;
   line-height: 1.4;
+  background-color: $back;
 }
 
 h6, h5, h4 {
@@ -43,40 +50,57 @@ h6, h5, h4 {
   margin: 0;
   float: left;
   width: 33.333%;
+
 }
 
 //===============================================================================
 // STYLES
 //===============================================================================
 
-/* 
-* Example style!
-* You can do whatever the hell you want on your site :-)
-*/
-
-
-p, a {
-  font-size:9pt;
-  margin:10px 0 0 0;
-  color:#3d3d3d;
+.full-width {
+  width: 100%;
+  height: 100%;
+  // margin-top: 15%;
+  position: absolute;
+  display: block;
+  float: left;
 }
 
-a, a:visited {
-  color:#427fed;
+.data-shown {
+  position: absolute;
+  top: 100%;
+  width: 100%;
 }
 
-a:hover {
-  color:#82afff;
+
+.happy-col, .sad-col, .surprised-col, .afraid-col, .angry-col {
+  width: 20%;
+  height: 100%;
+  border-radius: 500px;
+  float: left;
+  transition: all 4s ease;
+  filter: blur(10px);
+
 }
 
-ul li {
-  list-style:none;
-  overflow:hidden;
-  border:1px solid #dedede;
-  margin:5px;
-  padding:5px;
+.happy-col {
+  background-color: $happy;
+}
+.sad-col {
+  background-color: $sad;
+}
+.surprised-col {
+  background-color: $surprised;
+}
+.afraid-col {
+  background-color: $afraid;
+}
+.angry-col {
+  background-color: $angry;
 }
 
-ul li:hover {
-  background-color:#f0f3fb;
-}
+
+
+
+
+

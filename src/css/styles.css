@@ -189,58 +189,72 @@ table {
 td, th {
   padding: 0; }
 
-/* line 22, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+/* line 30, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
 *, *::before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased; }
 
-/* line 28, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+/* line 36, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
 ul {
   padding: 0;
   list-style: none; }
 
-/* line 34, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+/* line 42, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
 html, body {
-  background-color: white;
-  color: black;
   font-family: sans-serif;
-  line-height: 1.4; }
+  line-height: 1.4;
+  background-color: #252547; }
 
-/* line 41, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+/* line 48, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
 h6, h5, h4 {
   color: blue;
   margin: 0;
   float: left;
   width: 33.333%; }
 
-/* 
-* Example style!
-* You can do whatever the hell you want on your site :-)
-*/
-/* line 58, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
-p, a {
-  font-size: 9pt;
-  margin: 10px 0 0 0;
-  color: #3d3d3d; }
+/* line 60, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.full-width {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  float: left; }
 
-/* line 64, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
-a, a:visited {
-  color: #427fed; }
+/* line 69, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.data-shown {
+  position: absolute;
+  top: 100%;
+  width: 100%; }
 
-/* line 68, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
-a:hover {
-  color: #82afff; }
+/* line 76, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.happy-col, .sad-col, .surprised-col, .afraid-col, .angry-col {
+  width: 20%;
+  height: 100%;
+  border-radius: 500px;
+  float: left;
+  -webkit-transition: all 4s ease;
+  transition: all 4s ease;
+  -webkit-filter: blur(10px);
+  filter: blur(10px); }
 
-/* line 72, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
-ul li {
-  list-style: none;
-  overflow: hidden;
-  border: 1px solid #dedede;
-  margin: 5px;
-  padding: 5px; }
+/* line 86, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.happy-col {
+  background-color: #46C872; }
 
-/* line 80, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
-ul li:hover {
-  background-color: #f0f3fb; }
+/* line 89, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.sad-col {
+  background-color: #6254E5; }
+
+/* line 92, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.surprised-col {
+  background-color: #FFB42E; }
+
+/* line 95, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.afraid-col {
+  background-color: #EB76B6; }
+
+/* line 98, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.angry-col {
+  background-color: #DD1C24; }
