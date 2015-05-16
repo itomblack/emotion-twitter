@@ -46,7 +46,7 @@ var config1 = {
 
 //sad
 var config2 = {
-  "id": '599621806916505600',
+  "id": '599647946376945665',
   "domId": 'example2',
   "maxTweets": 20,
   "enableLinks": true,
@@ -61,7 +61,7 @@ var config2 = {
 
 //surprised
 var config3 = {
-  "id": '599621806916505600',
+  "id": '599648303853240321',
   "domId": 'example3',
   "maxTweets": 20,
   "enableLinks": true,
@@ -77,7 +77,7 @@ var config3 = {
 
 //afraid
 var config4 = {
-  "id": '598894124360667136',
+  "id": '599648517834027008',
   "domId": 'example4',
   "maxTweets": 20,
   "enableLinks": true,
@@ -130,6 +130,8 @@ var angryTweets = [],
 angryTop = 0,
 angryCount = 0;
 
+var emotionProportion = [];
+
 
 
 
@@ -162,29 +164,41 @@ function setHtmlValue(emotion, emotionCount) {
   $(emotionID).html(emotionCount);
 };
 
+function setHtmlPercents(emotionProportion) {
+  console.log('test')
+  $('#happy-count-num').html(emotionProportion[0]);
+  $('#sad-count-num').html(emotionProportion[1]);
+  $('#surprised-count-num').html(emotionProportion[2]);
+  $('#afraid-count-num').html(emotionProportion[3]);
+  $('#angry-count-num').html(emotionProportion[4]);
+};
+
 function handleTweets(tweets){
 
+  //reset on first go
+  if (emotionCount == 1 ) {
+    //reset values
+    happyTweets = [];
+    happyTop = 0;
+    happyCount = 0;
 
-  //reset values
-  happyTweets = [],
-  happyTop = 0,
-  happyCount = 0;
+    sadTweets = [];
+    sadTop = 0;
+    sadCount = 0;
 
-  sadTweets = [],
-  sadTop = 0,
-  sadCount = 0;
+    surprisedTweets = [];
+    surprisedTop = 0;
+    surprisedCount = 0;
 
-  surprisedTweets = [],
-  surprisedTop = 0,
-  surprisedCount = 0;
+    afraidTweets = [];
+    afraidTop = 0;
+    afraidCount = 0;
 
-  afraidTweets = [],
-  afraidTop = 0,
-  afraidCount = 0;
+    angryTweets = [];
+    angryTop = 0;
+    angryCount = 0;
 
-  angryTweets = [],
-  angryTop = 0,
-  angryCount = 0;
+  }
 
   //get number of tweets in last seconds
 
@@ -216,11 +230,18 @@ function handleTweets(tweets){
         if (emotionCount === 1) {
           happyTweets[n] = seconds;
         }
+        else if (emotionCount === 2) {
+          sadTweets[n] = seconds;
+        }
+        else if (emotionCount === 3) {
+          surprisedTweets[n] = seconds;
+        }
+        else if (emotionCount === 4) {
+          afraidTweets[n] = seconds;
+        }
         else if (emotionCount === 5) {
           angryTweets[n] = seconds;
         }
-
-
 
       // //get tweet content
       // var twtContent = tweets[n];
@@ -239,35 +260,54 @@ function handleTweets(tweets){
         //GET HAPPY VALUES
         happyTop = getTop(happyTweets);
         happyCount = countVal(happyTweets, happyTop);
-        setHtmlValue('happy', happyCount);
+        // setHtmlValue('happy', happyCount);
       }
 
       if (emotionCount === 2) {
         //GET ANGRY VALUES
         sadTop = getTop(sadTweets);
         sadCount = countVal(sadTweets, sadTop);
-        setHtmlValue('sad', sadCount);
+        // setHtmlValue('sad', sadCount);
       }
 
       if (emotionCount === 3) {
         //GET ANGRY VALUES
         surprisedTop = getTop(surprisedTweets);
         surprisedCount = countVal(surprisedTweets, surprisedTop);
-        setHtmlValue('surprised', surprisedCount);
+        // setHtmlValue('surprised', surprisedCount);
       }
 
       if (emotionCount === 4) {
         //GET ANGRY VALUES
         afraidTop = getTop(afraidTweets);
         afraidCount = countVal(afraidTweets, afraidTop);
-        setHtmlValue('afraid', afraidCount);
+        // setHtmlValue('afraid', afraidCount);
       }
        
       if (emotionCount === 5) {
         //GET ANGRY VALUES
         angryTop = getTop(angryTweets);
         angryCount = countVal(angryTweets, angryTop);
-        setHtmlValue('angry', angryCount);
+        // setHtmlValue('angry', angryCount);
+
+        //run equation
+        var tweetTotal =  happyCount + sadCount + surprisedCount +  afraidCount + angryCount;
+        console.log('tweet total ' + tweetTotal)
+
+        // emotionProportion[0] = Math.round(happyCount / tweetTotal);
+        emotionProportion[0] = (happyCount*100 / tweetTotal).toFixed(1);
+        emotionProportion[1] = (sadCount*100 / tweetTotal).toFixed(1);
+        emotionProportion[2] = (surprisedCount*100 / tweetTotal).toFixed(1);
+        emotionProportion[3] = (afraidCount*100 / tweetTotal).toFixed(1);
+        emotionProportion[4] = (angryCount*100 / tweetTotal).toFixed(1);
+
+        console.log(emotionProportion[0])
+        console.log(emotionProportion[1])
+        console.log(emotionProportion[2])
+        console.log(emotionProportion[3])
+        console.log(emotionProportion[4])
+
+        setHtmlPercents(emotionProportion);
       }
 
     
@@ -277,7 +317,8 @@ function handleTweets(tweets){
     // logValues();
 
     emotionCount++;
-    // emotionCount = 5;
+
+    
 
 } //*** END HANDLE TWEETS **//
 
@@ -286,6 +327,10 @@ twitterFetcher.fetch(config2);
 twitterFetcher.fetch(config3);
 twitterFetcher.fetch(config4);
 twitterFetcher.fetch(config5);
+
+if (emotionCount == 5) {
+  console.log('run')
+}
 
 
 

@@ -209,11 +209,11 @@ html, body {
   line-height: 1.4; }
 
 /* line 41, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
-h6, h5 {
+h6, h5, h4 {
   color: blue;
   margin: 0;
   float: left;
-  width: 50%; }
+  width: 33.333%; }
 
 /* 
 * Example style!
