@@ -211,7 +211,8 @@ function handleTweets(tweets){
 
   //get time of first tweet
   var twtTime = tweets[0];
-  if (twtTime.includes('class="timePosted">')) {  
+  // if (twtTime.indexOf('class="timePosted">') >= 0) {  
+  if (twtTime != undefined) {  
     twtTime = twtTime.split('class="timePosted">')[1];
     twtTime = twtTime.split('">')[1];
     twtTime = twtTime.split(' ')[0];
