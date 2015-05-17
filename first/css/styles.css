@@ -1,0 +1,334 @@
+/* line 5, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+/* line 12, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+body {
+  margin: 0; }
+
+/* line 31, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block; }
+
+/* line 40, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+audio, canvas, progress, video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/* line 47, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/* line 55, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+[hidden], template {
+  display: none; }
+
+/* line 63, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+a {
+  background: transparent; }
+
+/* line 69, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+a:active, a:hover {
+  outline: 0; }
+
+/* line 77, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/* line 83, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+b, strong {
+  font-weight: bold; }
+
+/* line 88, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+dfn {
+  font-style: italic; }
+
+/* line 93, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/* line 99, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/* line 105, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+small {
+  font-size: 80%; }
+
+/* line 111, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 118, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+sup {
+  top: -0.5em; }
+
+/* line 122, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+sub {
+  bottom: -0.25em; }
+
+/* line 130, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+img {
+  border: 0; }
+
+/* line 135, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* line 143, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+figure {
+  margin: 1em 40px; }
+
+/* line 148, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+hr {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/* line 155, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+pre {
+  overflow: auto; }
+
+/* line 163, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+/* line 182, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+/* line 189, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+button {
+  overflow: visible; }
+
+/* line 198, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+button, select {
+  text-transform: none; }
+
+/* line 208, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/* line 215, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+/* line 221, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/* line 228, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+input {
+  line-height: normal; }
+
+/* line 238, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+input[type="checkbox"], input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0; }
+
+/* line 247, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/* line 253, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/* line 263, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/* line 268, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/* line 276, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+legend {
+  border: 0;
+  padding: 0; }
+
+/* line 282, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+textarea {
+  overflow: auto; }
+
+/* line 288, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+optgroup {
+  font-weight: bold; }
+
+/* line 296, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 302, /Users/itomblack/Repos/emotion-twitter/src/sass/_normalize.scss */
+td, th {
+  padding: 0; }
+
+/* line 30, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+*, *::before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased; }
+
+/* line 36, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+ul {
+  padding: 0;
+  list-style: none; }
+
+/* line 42, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+html, body {
+  font-family: sans-serif;
+  line-height: 1.4;
+  background-color: #252547; }
+
+/* line 48, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+h6, h5, h4 {
+  color: blue;
+  margin: 0;
+  float: left;
+  width: 33.333%; }
+
+/* line 60, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.full-width {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  float: left; }
+
+/* line 69, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.data-shown {
+  position: absolute;
+  top: 100%;
+  width: 100%; }
+
+/* line 76, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.happy-col, .sad-col, .surprised-col, .afraid-col, .angry-col {
+  width: 20%;
+  height: 100%;
+  float: left;
+  -webkit-transition: all 4s ease;
+  transition: all 4s ease; }
+
+/* line 86, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.happy-col {
+  background-color: #46C872; }
+
+/* line 89, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.sad-col {
+  background-color: #6254E5; }
+
+/* line 92, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.surprised-col {
+  background-color: #FFB42E; }
+
+/* line 95, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.afraid-col {
+  background-color: #EB76B6; }
+
+/* line 98, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.angry-col {
+  background-color: #DD1C24; }
+
+/* line 102, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.monitor {
+  height: 20px;
+  border-top: solid 1px #252547;
+  background-color: #252547;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+/* line 112, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.emotion-high {
+  width: 0;
+  height: 100%;
+  float: right;
+  display: block; }
+
+/* line 120, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.emoti-tweet {
+  width: 70%;
+  height: 50%;
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  display: table;
+  text-align: center;
+  padding: 50px;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease; }
+  /* line 131, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  .emoti-tweet div {
+    display: table-cell;
+    vertical-align: middle;
+    -webkit-transition: all 2s ease;
+    transition: all 2s ease;
+    text-align: center;
+    opacity: 0.6; }
+    /* line 138, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+    .emoti-tweet div p {
+      font-size: 1.5em;
+      line-height: 1em;
+      font-weight: bold;
+      color: #252547;
+      -webkit-transition: all 2s ease;
+      transition: all 2s ease; }
+
+/* line 150, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.hide-on-load {
+  -webkit-animation: hideFirst 10s ease;
+  animation: hideFirst 10s ease; }
+
+@-webkit-keyframes hideFirst {
+  /* line 155, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  0% {
+    opacity: 0; }
+
+  /* line 156, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  90% {
+    opacity: 0; }
+
+  /* line 157, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  100% {
+    opacity: 1; } }
+
+@keyframes hideFirst {
+  /* line 155, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  0% {
+    opacity: 0; }
+
+  /* line 156, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  90% {
+    opacity: 0; }
+
+  /* line 157, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  100% {
+    opacity: 1; } }
