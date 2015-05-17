@@ -232,12 +232,9 @@ h6, h5, h4 {
 .happy-col, .sad-col, .surprised-col, .afraid-col, .angry-col {
   width: 20%;
   height: 100%;
-  border-radius: 500px;
   float: left;
   -webkit-transition: all 4s ease;
-  transition: all 4s ease;
-  -webkit-filter: blur(10px);
-  filter: blur(10px); }
+  transition: all 4s ease; }
 
 /* line 86, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
 .happy-col {
@@ -258,3 +255,20 @@ h6, h5, h4 {
 /* line 98, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
 .angry-col {
   background-color: #DD1C24; }
+
+/* line 102, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.monitor {
+  height: 50px;
+  border-top: solid 1px #252547;
+  background-color: #252547;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+/* line 112, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.emotion-high {
+  width: 0;
+  height: 100%;
+  float: right;
+  display: block; }

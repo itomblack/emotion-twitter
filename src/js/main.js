@@ -132,7 +132,13 @@ angryCount = 0;
 
 var emotionProportion = [];
 
-
+var emotionLink = [ 
+'happy',
+'sad',
+'surprised',
+'afraid',
+'angry'
+];
 
 
 //DEFINE FUNCTIONS ************//
@@ -179,6 +185,45 @@ function setHtmlPercents(emotionProportion) {
   $('#angry-col').width(emotionProportion[4] + '%')
 
 };
+
+
+function accentHigh(emotionProportion) { // NOT USED NOW
+  // var maxEmotion = getTop(emotionProportion);
+  // var thisCount = 0;
+  //   for (var i = 0; i < emotionProportion.length; i++) {
+  //       if (emotionProportion[i] == maxEmotion) {
+  //          // thisCount = i;
+  //          emotionProportion[i] = emotionProportion[i] * 1.1;
+  //       }
+  //       else {
+  //         console.log('else');
+  //         emotionProportion[i] = emotionProportion[i] * 0.89;
+  //       }
+  //   };
+  // return emotionProportion;
+}
+
+function emotionMonitor(emotionProportion) { // NOT USED NOW
+  var maxEmotion = getTop(emotionProportion);
+
+  //WORK OUT WHICH ONE THIS IS
+  var thisCount = 0;
+    for (var i = 0; i < emotionProportion.length; i++) {
+        if (emotionProportion[i] == maxEmotion) {
+          var cssEmotion = emotionLink[i];
+           i = emotionProportion.length;
+        }
+    };
+    
+    //add div with class
+    $('#monitor').append('<div class="emotion-high ' + cssEmotion + '-col"></div>');
+
+    //rezise divs
+    var totalMonitors = $('.emotion-high');
+    var newWidth = 100 / totalMonitors.length;
+    totalMonitors.width(newWidth + '%');
+    
+}
 
 function handleTweets(tweets){
 
@@ -306,14 +351,20 @@ function handleTweets(tweets){
         //run equation
         var tweetTotal =  happyCount + sadCount + surprisedCount +  afraidCount + angryCount;
 
-        // emotionProportion[0] = Math.round(happyCount / tweetTotal);
-        emotionProportion[0] = Math.floor((happyCount*100 / tweetTotal).toFixed(1));
-        emotionProportion[1] = Math.floor((sadCount*100 / tweetTotal).toFixed(1));
-        emotionProportion[2] = Math.floor((surprisedCount*100 / tweetTotal).toFixed(1));
-        emotionProportion[3] = Math.floor((afraidCount*100 / tweetTotal).toFixed(1));
-        emotionProportion[4] = Math.floor((angryCount*100 / tweetTotal).toFixed(1));
+        emotionProportion[0] = (happyCount*99.85 / tweetTotal).toFixed(1);
+        emotionProportion[1] = (sadCount*99.85 / tweetTotal).toFixed(1);
+        emotionProportion[2] = (surprisedCount*99.85 / tweetTotal).toFixed(1);
+        emotionProportion[3] = (afraidCount*99.85 / tweetTotal).toFixed(1);
+        emotionProportion[4] = (angryCount*99.85 / tweetTotal).toFixed(1);
 
+        //make larges double influence
+        // accentHigh(emotionProportion);
+
+        //set div widths
         setHtmlPercents(emotionProportion);
+
+        //add new time monitor bar
+        emotionMonitor(emotionProportion);
       }
 
     emotionCount++;
@@ -332,7 +383,7 @@ twitterFetcher.fetch(config5);
 
 runTweet();
 
-window.setInterval(runTweet, 3000);
+window.setInterval(runTweet, 4000);
 
 
 

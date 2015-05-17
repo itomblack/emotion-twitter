@@ -76,10 +76,10 @@ h6, h5, h4 {
 .happy-col, .sad-col, .surprised-col, .afraid-col, .angry-col {
   width: 20%;
   height: 100%;
-  border-radius: 500px;
+  // border-radius: 500px;
   float: left;
   transition: all 4s ease;
-  filter: blur(10px);
+  // filter: blur(10px);
 
 }
 
@@ -97,6 +97,23 @@ h6, h5, h4 {
 }
 .angry-col {
   background-color: $angry;
+}
+
+.monitor{
+  height: 50px;
+  border-top: solid 1px $back;
+  background-color: $back;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.emotion-high {
+  width: 0;
+  height: 100%;
+  float: right;
+  display: block;
 }
 
 
