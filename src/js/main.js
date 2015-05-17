@@ -106,9 +106,27 @@ var config5 = {
 };
 
 
+
+//TWEET IN
+var config6 = {
+  "id": '599889871369596928',
+  "domId": 'example6',
+  "maxTweets": 20,
+  "enableLinks": true,
+  "showUser": true,
+  "showTime": true,
+  "dateFunction": '',
+  "showRetweet": false,
+  "dateFunction": dateFormatter,
+  "customCallback": handleTweets,
+  "showInteraction": false
+};
+
+
+
 //DEFINE VARIABLES ************//
 
-var emotionCount = 1;
+var emotionCount = 0;
 
 var happyTweets = [],
 happyTop = 0,
@@ -140,15 +158,12 @@ var emotionLink = [
 'angry'
 ];
 
+var previousTweet = [];
+
+
+var tweets = [];
 
 //DEFINE FUNCTIONS ************//
-
-
-function logValues() {
-  console.log('top ' + angryTop);
-  console.log('tweets ' + angryTweets);
-  console.log('count ' + angryCount);
-}
 
 function getTop(emotionTweets) {
   return Math.max.apply(Math, emotionTweets);
@@ -171,12 +186,6 @@ function setHtmlValue(emotion, emotionCount) {
 };
 
 function setHtmlPercents(emotionProportion) {
-
-  // $('#happy-count-num').html(emotionProportion[0]);
-  // $('#sad-count-num').html(emotionProportion[1]);
-  // $('#surprised-count-num').html(emotionProportion[2]);
-  // $('#afraid-count-num').html(emotionProportion[3]);
-  // $('#angry-count-num').html(emotionProportion[4]);
 
   $('#happy-col').width(emotionProportion[0] + '%');
   $('#sad-col').width(emotionProportion[1] + '%')
@@ -228,7 +237,7 @@ function emotionMonitor(emotionProportion) { // NOT USED NOW
 function handleTweets(tweets){
 
   //reset on first go
-  if (emotionCount == 1 ) {
+  if (emotionCount == 0 ) {
     //reset values
     happyTweets = [];
     happyTop = 0;
@@ -270,10 +279,10 @@ function handleTweets(tweets){
 
     var x = tweets.length;
     var n = 0;
-    var element = document.getElementById('example5');
     var html = '<ul>';
     while(n < x) {
 
+  //HERE WE GET THE TIME VALUE OF EACH TWEET
       var twtTime= tweets[n];
        twtTime = twtTime.split('class="timePosted">')[1];
        twtTime = twtTime.split('">')[1];
@@ -285,64 +294,66 @@ function handleTweets(tweets){
        var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]); 
 
 
-        if (emotionCount === 1) {
+        if (emotionCount === 0) {
           happyTweets[n] = seconds;
         }
-        else if (emotionCount === 2) {
+        else if (emotionCount === 1) {
           sadTweets[n] = seconds;
         }
-        else if (emotionCount === 3) {
+        else if (emotionCount === 2) {
           surprisedTweets[n] = seconds;
         }
-        else if (emotionCount === 4) {
+        else if (emotionCount === 3) {
           afraidTweets[n] = seconds;
         }
-        else if (emotionCount === 5) {
+        else if (emotionCount === 4) {
           angryTweets[n] = seconds;
         }
-
-      // //get tweet content
-      // var twtContent = tweets[n];
-      // twtContent = twtContent.split('class="tweet">')[1];
-      // twtContent = twtContent.split('</p>')[0];
-      // // end get tweet content
-
-      // html += '<li>' + seconds + '</li>';
+        else if (emotionCount === 5) {
+          //get tweet content
+          if (tweets[0] != undefined) {
+            var twtContent = tweets[0];
+            twtContent = twtContent.split('class="tweet">')[1];
+            twtContent = twtContent.split('</p>')[0];
+          }
+          else {
+            twtContent = " ";
+          }
+          
+        }
       n++;
       }
-      // html += '</ul>';
-      // element.innerHTML = html;
-    
 
-      if (emotionCount === 1) {
+// HERE WE DO DIFFERENT CALCS FOR EACH OF THE DIVS - GETTING AMMOUNT OF TWEETS IN A SECOND
+      if (emotionCount === 0) {
         //GET HAPPY VALUES
         happyTop = getTop(happyTweets);
         happyCount = countVal(happyTweets, happyTop);
         // setHtmlValue('happy', happyCount);
       }
 
-      if (emotionCount === 2) {
+      if (emotionCount === 1) {
         //GET ANGRY VALUES
         sadTop = getTop(sadTweets);
         sadCount = countVal(sadTweets, sadTop);
         // setHtmlValue('sad', sadCount);
       }
 
-      if (emotionCount === 3) {
+      if (emotionCount === 2) {
         //GET ANGRY VALUES
         surprisedTop = getTop(surprisedTweets);
         surprisedCount = countVal(surprisedTweets, surprisedTop);
         // setHtmlValue('surprised', surprisedCount);
       }
 
-      if (emotionCount === 4) {
+      if (emotionCount === 3) {
         //GET ANGRY VALUES
         afraidTop = getTop(afraidTweets);
         afraidCount = countVal(afraidTweets, afraidTop);
         // setHtmlValue('afraid', afraidCount);
       }
        
-      if (emotionCount === 5) {
+      if (emotionCount === 4) {
         //GET ANGRY VALUES
         angryTop = getTop(angryTweets);
         angryCount = countVal(angryTweets, angryTop);
@@ -357,14 +368,51 @@ function handleTweets(tweets){
         emotionProportion[3] = (afraidCount*99.85 / tweetTotal).toFixed(1);
         emotionProportion[4] = (angryCount*99.85 / tweetTotal).toFixed(1);
 
-        //make larges double influence
-        // accentHigh(emotionProportion);
-
         //set div widths
         setHtmlPercents(emotionProportion);
 
         //add new time monitor bar
         emotionMonitor(emotionProportion);
+      }
+
+      if (emotionCount === 5) {
+          //reset test arrays
+          var inTest = [];
+          var newTweetTest = false;
+
+          //loop in a loop to comapre array of previous tweets against array of new tweets
+          for (var i = 0; i < tweets.length; i++) {
+            var rowTest = "not"
+            for (var x = 0; x < tweets.length; x++) {
+              if (previousTweet[i] == tweets[x]) {
+                rowTest = "found"
+              }
+            }
+            inTest[i] = rowTest;
+          }
+
+          //check array to see if there were any non matched tweets
+          for(var i=0;i<inTest.length;i++) {
+
+            if (inTest[i] == "not") {
+              newTweetTest = true;
+            }
+          }
+
+          //if not new tweets, empty the div / or fill up if new found
+          if (newTweetTest == false) {
+            //set to empty
+            $('#emoti-tweet').html('<p></p>');
+          }
+          else {
+            $('#emoti-tweet').html('<p>' + twtContent + '</p>');
+          }
+
+          //fill up the previous tweets array for the next time round
+          for (var i = 0; i < tweets.length; i++) {
+            previousTweet[i] = tweets[i];
+          }
+       
       }
 
     emotionCount++;
@@ -373,12 +421,13 @@ function handleTweets(tweets){
 
 
 function runTweet() {
-emotionCount = 1;
+emotionCount = 0;
 twitterFetcher.fetch(config1);
 twitterFetcher.fetch(config2);
 twitterFetcher.fetch(config3);
 twitterFetcher.fetch(config4);
 twitterFetcher.fetch(config5);
+twitterFetcher.fetch(config6);
 }
 
 runTweet();
