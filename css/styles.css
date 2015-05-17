@@ -272,3 +272,63 @@ h6, h5, h4 {
   height: 100%;
   float: right;
   display: block; }
+
+/* line 120, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.emoti-tweet {
+  width: 70%;
+  height: 50%;
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  display: table;
+  text-align: center;
+  padding: 50px;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease; }
+  /* line 131, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  .emoti-tweet div {
+    display: table-cell;
+    vertical-align: middle;
+    -webkit-transition: all 2s ease;
+    transition: all 2s ease;
+    text-align: center;
+    opacity: 0.6; }
+    /* line 138, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+    .emoti-tweet div p {
+      font-size: 1.5em;
+      line-height: 1em;
+      font-weight: bold;
+      color: #252547;
+      -webkit-transition: all 2s ease;
+      transition: all 2s ease; }
+
+/* line 150, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+.hide-on-load {
+  -webkit-animation: hideFirst 10s ease;
+  animation: hideFirst 10s ease; }
+
+@-webkit-keyframes hideFirst {
+  /* line 155, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  0% {
+    opacity: 0; }
+
+  /* line 156, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  90% {
+    opacity: 0; }
+
+  /* line 157, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  100% {
+    opacity: 1; } }
+
+@keyframes hideFirst {
+  /* line 155, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  0% {
+    opacity: 0; }
+
+  /* line 156, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  90% {
+    opacity: 0; }
+
+  /* line 157, /Users/itomblack/Repos/emotion-twitter/src/sass/styles.scss */
+  100% {
+    opacity: 1; } }
