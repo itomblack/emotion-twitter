@@ -20,6 +20,20 @@ f[b].getAttribute("aria-label")+"</p>"))):a[b].innerText?(q&&(d+='<p class="user
 c.push(d);b++}if(null===A){a=c.length;g=0;f=document.getElementById(B);for(h="<ul>";g<a;)h+="<li>"+c[g]+"</li>",g++;f.innerHTML=h+"</ul>"}else A(c);x=!1;0<u.length&&(H.fetch(u[0]),u.splice(0,1))}};return window.twitterFetcher=H});
 
 
+
+var happyVol =  document.getElementById('happy_audio');
+var sadVol = document.getElementById('sad_audio');
+var surpVol = document.getElementById('surprised_audio');
+var afraidVol = document.getElementById('afraid_audio');
+var angryVol = document.getElementById('angry_audio');
+
+happyVol.volume = 0;
+sadVol.volume = 0;
+surpVol.volume = 0;
+afraidVol.volume = 0;
+angryVol.volume = 0;
+
+
 function dateFormatter(date) {
   return date.toTimeString();
 }
@@ -188,29 +202,21 @@ function setHtmlValue(emotion, emotionCount) {
 function setHtmlPercents(emotionProportion) {
 
   $('#happy-col').width(emotionProportion[0] + '%');
-  $('#sad-col').width(emotionProportion[1] + '%')
-  $('#surprised-col').width(emotionProportion[2] + '%')
-  $('#afraid-col').width(emotionProportion[3] + '%')
-  $('#angry-col').width(emotionProportion[4] + '%')
+  $('#sad-col').width(emotionProportion[1] + '%');
+  $('#surprised-col').width(emotionProportion[2] + '%');
+  $('#afraid-col').width(emotionProportion[3] + '%');
+  $('#angry-col').width(emotionProportion[4] + '%');
+
+
+  happyVol.volume  = (emotionProportion[0] / 100);
+  sadVol.volume = (emotionProportion[1] / 100);
+  surpVol.volume = (emotionProportion[2] / 100);
+  afraidVol.volume = (emotionProportion[3] / 100);
+  angryVol.volume = (emotionProportion[4] / 100);
+
 
 };
 
-
-function accentHigh(emotionProportion) { // NOT USED NOW
-  // var maxEmotion = getTop(emotionProportion);
-  // var thisCount = 0;
-  //   for (var i = 0; i < emotionProportion.length; i++) {
-  //       if (emotionProportion[i] == maxEmotion) {
-  //          // thisCount = i;
-  //          emotionProportion[i] = emotionProportion[i] * 1.1;
-  //       }
-  //       else {
-  //         console.log('else');
-  //         emotionProportion[i] = emotionProportion[i] * 0.89;
-  //       }
-  //   };
-  // return emotionProportion;
-}
 
 function emotionMonitor(emotionProportion) { // NOT USED NOW
   var maxEmotion = getTop(emotionProportion);
